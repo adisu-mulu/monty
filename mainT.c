@@ -9,13 +9,14 @@
 int data;
 int main(int argc, char *argv[])
 {
+	FILE *file;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	FILE *file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
 
 	if (file == NULL)
 	{
@@ -41,9 +42,13 @@ void process_file(FILE *file)
 	char buffer[50];
 	char *token;
 	int opcodeValid, line_number;
+	stack_t *stack;
+	char opcode[10];
+	char data_part[10];
+	size_t len;
 
 	line_number = 0;
-	stack_t *stack = NULL;
+	stack = NULL;
 
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
@@ -52,15 +57,15 @@ void process_file(FILE *file)
 			line_number++;
 			continue;
 		}
-		char opcode[10] = "";
-		char data_part[10] = "";
+		memset(opcode, '\0', sizeof(opcode));
+		memset(data_part, '\0', sizeof(data_part));
 
 		opcodeValid = 0;
 
 		if (isOpcodeOnly(buffer))
 		{
 			strcpy(opcode, buffer);
-			size_t len = strlen(opcode);
+			len = strlen(opcode);
 
 			if (len > 0 && opcode[len - 1] == '\n')
 				opcode[len - 1] = '\0';
@@ -92,15 +97,11 @@ void process_file(FILE *file)
 void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		       int line_number, stack_t **stack)
 {
-	int i;
+	long unsigned int i;
 
 	instruction_t instructions[] = {
 		{"push", push_function},
 		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"nop", nop},
 	};
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
