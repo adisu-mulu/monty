@@ -88,7 +88,7 @@ void process_file(FILE *file)
  * @line_number: tracks line number
  * @stack: pointer to the stack
  */
-void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
+void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		       int line_number, stack_t **stack)
 {
 	unsigned long int i;
@@ -96,7 +96,9 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 	instruction_t instructions[] = {
 		{"push", push_function},
 		{"pall", pall},
-	};
+		{"pint", pint},
+		{"pop", pop},
+	 };
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
 	{
@@ -104,7 +106,7 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		{
 
 			if (strcmp(opcode, "push") == 0)
-				if (strcmp(data_part, "") == 0)
+				if (strcmp(data_part, "") == 0 || !is_digit(data_part))
 				{
 					printf("L<%d>: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
@@ -120,4 +122,18 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, opcode);
 		exit(EXIT_FAILURE);
 	}
+}
+int is_digit(char *s)
+{
+	int i = 0;
+	
+	while (s[i] != '\0' && s[i] != '\n')
+	{
+		char c= s[i];
+		if (!isdigit(c)) {
+			return (0);
+		 }
+		++i;
+	}
+        return (1);
 }
