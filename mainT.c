@@ -57,7 +57,7 @@ void process_file(FILE *file)
 
 		opcodeValid = 0;
 
-		if (!isOpcodeOnly(buffer))
+		if (isOpcodeOnly(buffer))
 		{
 			strcpy(opcode, buffer);
 			size_t len = strlen(opcode);

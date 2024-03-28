@@ -2,9 +2,9 @@
 int isOpcodeOnly(const char *str) {
 	while (*str) {
 		if (*str == ' ') {
-	             return 1; // String contains a space
+	             return 0;
 	        }
 		str++;
 	 }
-	return 0;
+	return 1;
 }
