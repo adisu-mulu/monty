@@ -42,6 +42,8 @@ int isOpcodeOnly(const char *str);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void process_file(FILE *file);
+void execute_operation(char opcode[10], char data_part[5], int opcodeValid, int line_number, stack_t **stack);
 void swap(stack_t **stack, unsigned int line_number);
 
 #endif
