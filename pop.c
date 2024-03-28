@@ -1,8 +1,15 @@
 #include "monty.h"
+/**
+ * pop - function
+ * @stack: pointer
+ * @line_number: integer
+ * Return: void
+ */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
-	if(temp != NULL)
+
+	if (temp != NULL)
 	{
 		*stack = temp->prev;
 		*(temp)->next = NULL;
