@@ -47,6 +47,11 @@ void process_file(FILE *file)
 
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
+		if (strlen(buffer) - 1 == 0)
+		{
+			line_number++;
+			continue;
+		}
 		char opcode[10] = "";
 		char data_part[10] = "";
 
