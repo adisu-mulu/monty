@@ -126,14 +126,14 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 int is_digit(char *s)
 {
 	int i = 0;
-	
+
 	while (s[i] != '\0' && s[i] != '\n')
 	{
-		char c= s[i];
-		if (!isdigit(c)) {
+		char c = s[i];
+
+		if (!isdigit(c))
 			return (0);
-		 }
 		++i;
 	}
-        return (1);
+	return (1);
 }
