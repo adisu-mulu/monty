@@ -39,17 +39,14 @@ int main(int argc, char *argv[])
  */
 void process_file(FILE *file)
 {
-	char buffer[50];
-	char *token;
+	char buffer[50],  *token;
 	int opcodeValid, line_number;
 	stack_t *stack;
-	char opcode[10];
-	char data_part[10];
+	char opcode[10],  data_part[10];
 	size_t len;
 
 	line_number = 0;
 	stack = NULL;
-
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
 		if (strlen(buffer) - 1 == 0)
@@ -59,7 +56,6 @@ void process_file(FILE *file)
 		}
 		memset(opcode, '\0', sizeof(opcode));
 		memset(data_part, '\0', sizeof(data_part));
-
 		opcodeValid = 0;
 
 		if (isOpcodeOnly(buffer))
@@ -80,9 +76,7 @@ void process_file(FILE *file)
 			token = strtok(NULL, " ");
 			if (token != NULL)
 				strcpy(data_part, token);
-			data_part[9] = '\0';
 		}
-
 		execute_operation(opcode, data_part, opcodeValid, ++line_number, &stack);
 	}
 }
@@ -97,7 +91,7 @@ void process_file(FILE *file)
 void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		       int line_number, stack_t **stack)
 {
-	long unsigned int i;
+	unsigned long int i;
 
 	instruction_t instructions[] = {
 		{"push", push_function},
