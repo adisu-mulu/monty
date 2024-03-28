@@ -4,7 +4,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	stack_t *temp = *stack;
 	if(temp != NULL)
 	{
-		*stack = temp->next;
+		*stack = temp->prev;
+		*(temp)->next = NULL;
 		free(temp);
 	}
 	else
