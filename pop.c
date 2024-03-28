@@ -7,5 +7,9 @@ void pop(stack_t **stack, unsigned int line_number)
 		*stack = temp->next;
 		free(temp);
 	}
-	else printf("L<%d>: can't pop an empty stack\n", line_number);
+	else
+	{
+		printf("L<%d>: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
