@@ -114,5 +114,5 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		}
 	}
 	if (opcodeValid == 0)
-		printf("%s not found \n", opcode);
+		fprintf(stderr, "L<%d>: unknown instruction <%s>\n",line_number, opcode);
 }
