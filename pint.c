@@ -1,8 +1,7 @@
 #include "monty.h"
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
-	if(temp != NULL)
+	if(*stack != NULL)
 		printf("%d\n", temp->n);
 	else
 	{
