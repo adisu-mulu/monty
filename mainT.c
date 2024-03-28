@@ -98,6 +98,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"nop", nop},
 	 };
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
