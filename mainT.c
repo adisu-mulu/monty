@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdbool.h>
 /**
  * main - function
  * @argc: arguement
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
 
 	if (file == NULL)
 	{
-		fprintf(sterr, "Error: Can't open file %s\n", argv[1);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 	}
 	else
@@ -47,7 +48,7 @@ void process_file(FILE *file)
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
 		char opcode[10] = "";
-		char data_part[5] = "";
+		char data_part[10] = "";
 
 		opcodeValid = 0;
 
@@ -69,6 +70,7 @@ void process_file(FILE *file)
 			token = strtok(NULL, " ");
 			if (token != NULL)
 				strcpy(data_part, token);
+			data_part[9] = '\0';
 		}
 
 		execute_operation(opcode, data_part, opcodeValid, ++line_number, &stack);
@@ -115,7 +117,7 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 	}
 	if (opcodeValid == 0)
 	{
-		fprintf(stderr, "L<%d>: unknown instruction <%s>\n",line_number, opcode);
+		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, opcode);
 		exit(EXIT_FAILURE);
 	}
 }
