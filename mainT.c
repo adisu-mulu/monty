@@ -11,15 +11,15 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		printf("Usage: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	FILE *file = fopen(argv[1], "r");
 
 	if (file == NULL)
 	{
-		printf("Failed to open the file.\n");
-		return (1);
+		fprintf(sterr, "Error: Can't open file %s\n", argv[1);
+			exit(EXIT_FAILURE);
 	}
 	else
 	{
@@ -114,5 +114,8 @@ void execute_operation(char opcode[10], char data_part[5], int opcodeValid,
 		}
 	}
 	if (opcodeValid == 0)
+	{
 		fprintf(stderr, "L<%d>: unknown instruction <%s>\n",line_number, opcode);
+		exit(EXIT_FAILURE);
+	}
 }
