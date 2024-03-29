@@ -120,7 +120,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 	}
 	if (opcodeValid == 0)
 	{
-		fprintf(stderr, "L<%d>: unknown instruction <%s>\n", line_number, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 		exit(EXIT_FAILURE);
 	}
 }
