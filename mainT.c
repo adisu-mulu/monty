@@ -110,6 +110,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 				if (strcmp(data_part, "") == 0 || !is_digit(data_part))
 				{
 					printf("L%d: usage: push integer\n", line_number);
+					freeStack(stack, line_number);
 					exit(EXIT_FAILURE);
 				}
 
@@ -121,6 +122,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 	if (opcodeValid == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+		freeStack(stack, line_number);
 		exit(EXIT_FAILURE);
 	}
 }

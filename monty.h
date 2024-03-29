@@ -47,4 +47,5 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		       int line_number, stack_t **stack);
 void swap(stack_t **stack, unsigned int line_number);
 int is_digit(char *s);
+void freeStack(stack_t **stack, unsigned int line_number);
 #endif
