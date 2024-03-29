@@ -79,6 +79,7 @@ void process_file(FILE *file)
 		}
 		execute_operation(opcode, data_part, opcodeValid, ++line_number, &stack);
 	}
+	freeStack(&stack, 1);
 }
 /**
  * execute_operation - function
