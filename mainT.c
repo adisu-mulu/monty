@@ -128,6 +128,13 @@ int is_digit(char *s)
 {
 	int i = 0;
 
+	if (s[i] == '-')
+	{
+		++i;
+		if (s[i] == '\0' || s[i] == '\n')
+			return (0);
+	}
+
 	while (s[i] != '\0' && s[i] != '\n')
 	{
 		char c = s[i];
