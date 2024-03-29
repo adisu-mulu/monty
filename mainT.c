@@ -70,9 +70,7 @@ void process_file(FILE *file)
 		{
 			token = strtok(buffer, " ");
 			if (token != NULL)
-			{
 				strcpy(opcode, token);
-			}
 			token = strtok(NULL, " ");
 			if (token != NULL)
 				strcpy(data_part, token);
@@ -112,7 +110,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 			if (strcmp(opcode, "push") == 0)
 				if (strcmp(data_part, "") == 0 || !is_digit(data_part))
 				{
-					fprintf(stderr,"L%d: usage: push integer\n", line_number);
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
 					freeStack(stack, line_number);
 					exit(EXIT_FAILURE);
 				}
