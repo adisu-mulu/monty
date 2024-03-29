@@ -1,10 +1,16 @@
 #include "monty.h"
-int isOpcodeOnly(const char *str) {
-	while (*str) {
-		if (*str == ' ') {
-	             return 0;
-	        }
+/**
+ * isOpcodeOnly - function
+ * @str: character
+ * Return: 0 or 1
+ */
+int isOpcodeOnly(const char *str)
+{
+	while (*str)
+	{
+		if (*str == ' ')
+			return (0);
 		str++;
-	 }
-	return 1;
+	}
+	return (1);
 }
