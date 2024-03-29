@@ -126,6 +126,11 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * is_digit - function
+ * @s: char
+ * Return: 0 or 1
+ */
 int is_digit(char *s)
 {
 	int i = 0;
