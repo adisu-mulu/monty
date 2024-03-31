@@ -5,10 +5,9 @@
  * @argv: arguement
  * Return: success
  */
-
+int data;
 int main(int argc, char *argv[])
 {
-	int data;
 	FILE *file;
 
 	if (argc != 2)
