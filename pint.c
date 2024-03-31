@@ -1,4 +1,10 @@
 #include "monty.h"
+/**
+ * pint - function
+ * @stack: pointer
+ * @line_number: integer
+ * Return: void
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
