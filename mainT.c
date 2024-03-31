@@ -100,6 +100,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", div},
 	 };
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
