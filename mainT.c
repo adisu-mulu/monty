@@ -41,7 +41,7 @@ void process_file(FILE *file)
 	char buffer[50],  *token;
 	int opcodeValid, line_number;
 	stack_t *stack;
-	char opcode[10],  data_part[10];
+	char opcode[10],  data_part[100];
 	size_t len;
 
 	line_number = 0;
@@ -99,6 +99,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 		{"nop", nop},
 		{"swap", swap},
 		{"add", add},
+		{"sub", sub},
 	 };
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
