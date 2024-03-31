@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <stdbool.h>
 /**
  * main - function
  * @argc: arguement
@@ -110,7 +109,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 			if (strcmp(opcode, "push") == 0)
 				if (strcmp(data_part, "") == 0 || !is_digit(data_part))
 				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					fprintf(stderr,"L%d: usage: push integer\n", line_number);
 					freeStack(stack, line_number);
 					exit(EXIT_FAILURE);
 				}
