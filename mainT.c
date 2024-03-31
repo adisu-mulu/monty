@@ -48,7 +48,7 @@ void process_file(FILE *file)
 	stack = NULL;
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
-		if (strlen(buffer) - 1 == 0 || strcmp(buffer[0], "#") == 0)
+		if (strlen(buffer) - 1 == 0 || buffer[0] == '#')
 		{
 			line_number++;
 			continue;
