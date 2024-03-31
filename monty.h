@@ -39,6 +39,7 @@ void push_function(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int isOpcodeOnly(const char *str);
 void pop(stack_t **stack, unsigned int line_number);
