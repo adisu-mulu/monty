@@ -39,16 +39,18 @@ int main(int argc, char *argv[])
 void process_file(FILE *file)
 {
 	char buffer[50],  *token;
-	int opcodeValid, line_number;
+	int opcodeValid, line_number, i;
 	stack_t *stack;
 	char opcode[10],  data_part[100];
-	size_t len;
 
 	line_number = 0;
 	stack = NULL;
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
-		if (strlen(buffer) - 1 == 0 || buffer[0] == '#')
+		i = 0;
+		while (isspace(buffer[i]))
+			i++;
+		if (strlen(buffer) - 1 == 0 || buffer[i] == '#')
 		{
 			line_number++;
 			continue;
@@ -60,10 +62,8 @@ void process_file(FILE *file)
 		if (isOpcodeOnly(buffer))
 		{
 			strcpy(opcode, buffer);
-			len = strlen(opcode);
-
-			if (len > 0 && opcode[len - 1] == '\n')
-				opcode[len - 1] = '\0';
+			if (strlen(opcode) > 0 && opcode[strlen(opcode) - 1] == '\n')
+				opcode[strlen(opcode) - 1] = '\0';
 		}
 		else
 		{
