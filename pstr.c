@@ -22,12 +22,10 @@ void pstr(stack_t **stack, unsigned int line_number)
 				temp = temp->next;
 			}
 			else
-			{
-				printf("\n");
-				freeStack(stack, line_number);
-				return;
-			}
+				break;
 		}
 		printf("\n");
 	}
+	if (line_number > 0)
+	{}
 }
