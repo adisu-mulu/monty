@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 void process_file(FILE *file)
 {
 	char buffer[50],  *token;
-	int opcodeValid, line_number;
+	int opcodeValid, line_number, count;
 	stack_t *stack;
 	char opcode[10],  data_part[100];
 	size_t len;
@@ -48,11 +48,16 @@ void process_file(FILE *file)
 	stack = NULL;
 	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
-		if (strlen(buffer) - 1 == 0 || buffer[0] == '#')
+		if (strlen(buffer) - 1 == 0)
 		{
 			line_number++;
 			continue;
 		}
+		count = 0;
+		while (isspace(buffer[count]))
+			count++;
+		if (buffer[count] == '#')
+			continue;
 		memset(opcode, '\0', sizeof(opcode));
 		memset(data_part, '\0', sizeof(data_part));
 		opcodeValid = 0;
