@@ -1,4 +1,10 @@
 #include "monty.h"
+/**
+ * freeStack - function
+ * @stack: pointer
+ * @line_number: integer
+ * Return: void
+ */
 void freeStack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;

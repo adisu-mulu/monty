@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * mod - function
+ * _mod - function
  * @stack: pointer
  * @line_number: integer
  * Return: void

@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * div - function
+ * _div - function
  * @stack: pointer
  * @line_number: integer
  * Return: void
