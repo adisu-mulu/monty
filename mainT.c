@@ -94,7 +94,7 @@ void execute_operation(char opcode[10], char data_part[10], int opcodeValid,
 	instruction_t instructions[] = {{"push", push_function}, {"pall", pall},
 		{"pint", pint}, {"pop", pop}, {"nop", nop}, {"swap", swap},
 		{"add", add}, {"sub", sub}, {"div", _div},
-		{"mul", _mul}, {"mod", _mod}, {"pchar", pchar}, {"pstr", pstr},};
+		{"mul", _mul}, {"mod", _mod}, {"pchar", pchar}, {"pstr", pstr}, };
 
 	for (i = 0; i < sizeof(instructions) / sizeof(instructions[0]); i++)
 	{
