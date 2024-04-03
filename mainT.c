@@ -53,11 +53,6 @@ void process_file(FILE *file)
 			line_number++;
 			continue;
 		}
-		count = 0;
-		while (isspace(buffer[count]))
-			count++;
-		if (buffer[count] == '#')
-			continue;
 		memset(opcode, '\0', sizeof(opcode));
 		memset(data_part, '\0', sizeof(data_part));
 		opcodeValid = 0;
