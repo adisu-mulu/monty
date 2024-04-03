@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 void process_file(FILE *file)
 {
 	char buffer[50],  *token;
-	int opcodeValid, line_number, count;
+	int opcodeValid, line_number;
 	stack_t *stack;
 	char opcode[10],  data_part[100];
 	size_t len;
