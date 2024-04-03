@@ -25,7 +25,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 			{
 				printf("\n");
 				freeStack(stack, line_number);
-				exit(1);
+				return;
 			}
 		}
 		printf("\n");
